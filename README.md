@@ -133,6 +133,38 @@ Update the content in each component file to match your needs:
 - Safari (latest)
 - Edge (latest)
 
+## Deployment
+
+This website is configured for deployment on GitHub Pages. The deployment is automated via GitHub Actions.
+
+### Setting Up GitHub Pages
+
+1. Go to your repository settings on GitHub: `https://github.com/HackerWithDrip/munsoflt-prototype/settings`
+2. Navigate to **Pages** in the left sidebar
+3. Under **Source**, select **GitHub Actions** (not "Deploy from a branch")
+4. The GitHub Actions workflow will automatically deploy your site when you push to the `main` branch
+
+### Access Your Live Site
+
+Once deployed, your site will be available at:
+```
+https://hackerwithdrip.github.io/munsoflt-prototype/
+```
+
+### Manual Deployment
+
+The site is automatically deployed on every push to the `main` branch. You can also manually trigger a deployment by:
+1. Going to the **Actions** tab in your GitHub repository
+2. Selecting the **Deploy to GitHub Pages** workflow
+3. Clicking **Run workflow**
+
+### Troubleshooting
+
+If the site doesn't load correctly:
+- Check the Actions tab to see if the deployment workflow succeeded
+- Ensure the base path in `vite.config.js` matches your repository name (`/munsoflt-prototype/`)
+- Wait a few minutes for GitHub Pages to propagate changes
+
 ## License
 
 Copyright © Munsoft (2025). All Rights Reserved
