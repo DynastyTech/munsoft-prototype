@@ -148,7 +148,7 @@ This website is configured for deployment on GitHub Pages. The deployment is aut
 
 Once deployed, your site will be available at:
 ```
-https://hackerwithdrip.github.io/munsoft-prototype/
+https://dynastytech.github.io/munsoft-prototype/
 ```
 
 ### Manual Deployment
