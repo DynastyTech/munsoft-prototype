@@ -184,7 +184,7 @@ export default function Footer() {
             <p className="text-gray-500 text-sm">
               Designed & Developed by{' '}
               <a 
-                href="https://github.com/DynastyTech" 
+                href="https://dynastytech.github.io/lionel-portfolio/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-blue-400 hover:text-blue-300 transition-colors font-medium"
