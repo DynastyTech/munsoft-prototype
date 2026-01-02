@@ -31,25 +31,25 @@ export default function About() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg text-center">
-            <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+            <div className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
               {groupStats.companies}
             </div>
             <div className="text-gray-600 dark:text-gray-400">Group Companies</div>
           </div>
           <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg text-center">
-            <div className="text-4xl font-bold text-purple-600 dark:text-purple-400 mb-2">
+            <div className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
               {groupStats.saClients + groupStats.namibiaClients}+
             </div>
             <div className="text-gray-600 dark:text-gray-400">Active Clients</div>
           </div>
           <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg text-center">
-            <div className="text-4xl font-bold text-teal-600 dark:text-teal-400 mb-2">
+            <div className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
               {groupStats.countries}
             </div>
             <div className="text-gray-600 dark:text-gray-400">Countries</div>
           </div>
           <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg text-center">
-            <div className="text-4xl font-bold text-amber-600 dark:text-amber-400 mb-2">
+            <div className="text-4xl font-bold text-gray-900 dark:text-white mb-2">
               {groupStats.yearsExperience}+
             </div>
             <div className="text-gray-600 dark:text-gray-400">Years Experience</div>

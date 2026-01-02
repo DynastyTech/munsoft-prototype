@@ -117,7 +117,8 @@ export default function Solutions() {
               
               <div className="relative z-10">
                 <motion.div
-                  className="text-5xl mb-4"
+                  className="text-5xl mb-4 grayscale contrast-125 brightness-110"
+                  style={{ filter: 'grayscale(100%) contrast(1.2)' }}
                   animate={{
                     rotate: hoveredIndex === index ? [0, -10, 10, -10, 0] : 0,
                     scale: hoveredIndex === index ? 1.2 : 1,

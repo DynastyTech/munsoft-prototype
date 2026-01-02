@@ -1,57 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import FloatingCards from './FloatingCards'
-import { groupStats } from '../data/companies'
-
-function AnimatedNumber({ value, duration = 2000, suffix = '+' }) {
-  const [count, setCount] = useState(0)
-  const [hasAnimated, setHasAnimated] = useState(false)
-  const ref = useRef(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && !hasAnimated) {
-          setHasAnimated(true)
-          const startTime = Date.now()
-          const startValue = 0
-          const endValue = value
-
-          const animate = () => {
-            const now = Date.now()
-            const elapsed = now - startTime
-            const progress = Math.min(elapsed / duration, 1)
-            
-            // Easing function
-            const easeOutQuart = 1 - Math.pow(1 - progress, 4)
-            const currentValue = Math.floor(startValue + (endValue - startValue) * easeOutQuart)
-            
-            setCount(currentValue)
-
-            if (progress < 1) {
-              requestAnimationFrame(animate)
-            } else {
-              setCount(endValue)
-            }
-          }
-
-          animate()
-        }
-      },
-      { threshold: 0.5 }
-    )
-
-    if (ref.current) {
-      observer.observe(ref.current)
-    }
-
-    return () => {
-      if (ref.current) observer.unobserve(ref.current)
-    }
-  }, [value, duration, hasAnimated])
-
-  return <span ref={ref}>{count}{suffix}</span>
-}
 
 export default function Hero() {
   return (
@@ -70,16 +18,6 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
             className="text-center lg:text-left"
           >
-            {/* Badge */}
-            <motion.div
-              className="inline-block mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-            >
-              
-            </motion.div>
-
             <motion.h1
               className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6"
               initial={{ opacity: 0, y: 20 }}
@@ -101,33 +39,6 @@ export default function Hero() {
               Advancing the delivery of services in Local Government through a comprehensive 
               ecosystem of specialized technology companies across Southern Africa
             </motion.p>
-
-            {/* Stats */}
-            <motion.div
-              className="grid grid-cols-3 gap-4 mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-            >
-              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-xl p-4 shadow-lg border border-slate-200 dark:border-slate-700">
-                <div className="text-3xl md:text-4xl font-bold text-slate-700 dark:text-slate-300">
-                  {groupStats.companies}
-                </div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Group Companies</div>
-              </div>
-              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-xl p-4 shadow-lg border border-slate-200 dark:border-slate-700">
-                <div className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
-                  <AnimatedNumber value={groupStats.saClients + groupStats.namibiaClients} />
-                </div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Active Clients</div>
-              </div>
-              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-xl p-4 shadow-lg border border-slate-200 dark:border-slate-700">
-                <div className="text-3xl md:text-4xl font-bold text-teal-600 dark:text-teal-400">
-                  <AnimatedNumber value={groupStats.countries} suffix="" />
-                </div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Countries</div>
-              </div>
-            </motion.div>
 
             <motion.div
               className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
