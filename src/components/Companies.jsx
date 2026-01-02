@@ -12,6 +12,7 @@ import logoAdvisory from '../Logos/Advisory-logo.png'
 import logoIntelo from '../Logos/Intelo-white-logo.png'
 import logoITNA from '../Logos/ITNA_LOGO_WHITE.webp'
 import logoSunsoft from '../Logos/sunsoft-logo.png'
+import logoAegams from '../Logos/aegams-logo.png'
 
 const logoMap = {
   'munsoft': logoMunsoft,
@@ -23,6 +24,7 @@ const logoMap = {
   'intelo': logoIntelo,
   'itna': logoITNA,
   'sunsoft': logoSunsoft,
+  'aegams': logoAegams,
 }
 
 export default function Companies() {
