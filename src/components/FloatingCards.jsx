@@ -2,11 +2,9 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { motion } from 'framer-motion'
 import { useRef, memo } from 'react'
-import { useTheme } from '../contexts/ThemeContext'
 
 // Memoized rotating cube for better performance
 const RotatingCube = memo(function RotatingCube() {
-  const { theme } = useTheme()
   const meshRef = useRef()
   
   useFrame((state) => {
@@ -20,7 +18,7 @@ const RotatingCube = memo(function RotatingCube() {
     <mesh ref={meshRef}>
       <boxGeometry args={[3, 3, 3]} />
       <meshStandardMaterial
-        color={theme === 'dark' ? '#6366f1' : '#3b82f6'}
+        color="#6366f1"
         wireframe
         transparent
         opacity={0.8}
@@ -33,7 +31,7 @@ const RotatingCube = memo(function RotatingCube() {
 const FloatingCard = memo(function FloatingCard({ icon, text, delay, className }) {
   return (
     <motion.div
-      className={`absolute ${className} bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg rounded-2xl p-6 shadow-xl border border-gray-200 dark:border-gray-700 will-change-transform`}
+      className={`absolute ${className} bg-gray-800/90 backdrop-blur-lg rounded-2xl p-6 shadow-xl border border-gray-700 will-change-transform`}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{
@@ -47,7 +45,7 @@ const FloatingCard = memo(function FloatingCard({ icon, text, delay, className }
       }}
     >
       <div className="text-4xl mb-2">{icon}</div>
-      <div className="text-sm font-semibold text-gray-700 dark:text-gray-300">{text}</div>
+      <div className="text-sm font-semibold text-gray-300">{text}</div>
     </motion.div>
   )
 })
