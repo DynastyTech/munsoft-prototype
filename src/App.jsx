@@ -8,11 +8,12 @@ import Clients from './components/Clients'
 import Academy from './components/Academy'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300 overflow-x-hidden">
+      <div className="min-h-screen bg-gray-900 overflow-x-hidden">
         <Navbar />
         <Hero />
         <About />
@@ -22,6 +23,7 @@ function App() {
         <Academy />
         <Contact />
         <Footer />
+        <ScrollToTop />
       </div>
     </ThemeProvider>
   )
