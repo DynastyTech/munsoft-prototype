@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
 import { ThemeProvider } from './contexts/ThemeContext'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import About from './components/About'
 import Companies from './components/Companies'
 import Solutions from './components/Solutions'
 import Clients from './components/Clients'
@@ -15,6 +15,7 @@ function App() {
       <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
         <Navbar />
         <Hero />
+        <About />
         <Companies />
         <Solutions />
         <Clients />
@@ -27,4 +28,3 @@ function App() {
 }
 
 export default App
-

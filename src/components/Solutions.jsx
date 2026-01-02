@@ -2,25 +2,85 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 
 const solutions = [
-  { icon: '💼', title: 'Financial Management & Billing', description: 'Comprehensive financial management solutions tailored for local government' },
-  { icon: '👨‍💼', title: 'Payroll and Human Resources', description: 'Advanced HR and payroll software for efficient workforce management' },
-  { icon: '📋', title: 'mSCOA & Consulting', description: 'Expert consulting services for MSCOA compliance and implementation' },
-  { icon: '📈', title: 'Performance Management', description: 'Solutions to track and improve organizational performance' },
-  { icon: '🏢', title: 'Asset Management', description: 'Complete asset verification and management solutions' },
-  { icon: '📏', title: 'Metering Solutions', description: 'Advanced metering technology for accurate utility management' },
-  { icon: '💻', title: 'ICT Services', description: 'Essential ICT services to keep your systems running smoothly' },
-  { icon: '🛡️', title: 'Disaster Recovery', description: 'Robust disaster recovery solutions to protect your data' },
-  { icon: '🗺️', title: 'Geographic Information Systems', description: 'GIS solutions for spatial data management and analysis' },
-  { icon: '🧹', title: 'Data Cleansing & Revenue Enhancement', description: 'Services to optimize data quality and increase revenue' },
-  { icon: '🎓', title: 'Training Solutions', description: 'Accredited training programs for your team' },
-  { icon: '📊', title: 'Business Intelligence Dashboards', description: 'Real-time insights and analytics for informed decision-making' },
+  { 
+    icon: '💼', 
+    title: 'Financial Management Systems', 
+    description: 'Integrated FMS/ERP solutions for municipalities including billing, budgeting, and financial reporting',
+    companies: ['Munsoft', '4GL', 'Aegams']
+  },
+  { 
+    icon: '📊', 
+    title: 'Capital Investment Planning', 
+    description: 'CP3 platform, Capital Expenditure Frameworks (CEFs), and Spatial Development Frameworks (SDFs)',
+    companies: ['Novus3']
+  },
+  { 
+    icon: '💰', 
+    title: 'Credit Control & Revenue', 
+    description: 'Collection Wise and Indi Reg platforms for credit control, indigent management, and revenue enhancement',
+    companies: ['Rumas']
+  },
+  { 
+    icon: '📋', 
+    title: 'Advisory & Consulting', 
+    description: 'Expert operational process support for municipal governance, compliance, and mSCOA reform',
+    companies: ['Advisory']
+  },
+  { 
+    icon: '🎓', 
+    title: 'Training & Development', 
+    description: 'Comprehensive training programs including classroom, regional, onsite, and online learning',
+    companies: ['Sapsi']
+  },
+  { 
+    icon: '💻', 
+    title: 'ICT Services', 
+    description: 'Specialized IT infrastructure, network solutions, cloud services, and technical support',
+    companies: ['Intelo']
+  },
+  { 
+    icon: '⚡', 
+    title: 'Product Development', 
+    description: 'Internal product and solution development for the ITNA group of companies',
+    companies: ['Sunsoft']
+  },
+  { 
+    icon: '📈', 
+    title: 'Business Intelligence', 
+    description: 'Real-time dashboards, analytics, and financial spatial reporting for informed decision-making',
+    companies: ['Novus3', 'Munsoft']
+  },
+  { 
+    icon: '🏢', 
+    title: 'Asset Management', 
+    description: 'Complete asset verification, tracking, and lifecycle management solutions',
+    companies: ['Munsoft', 'Advisory']
+  },
+  { 
+    icon: '👨‍💼', 
+    title: 'Payroll & HR', 
+    description: 'Advanced payroll processing and human resources management for municipalities',
+    companies: ['Munsoft']
+  },
+  { 
+    icon: '🗺️', 
+    title: 'Geographic Information', 
+    description: 'GIS solutions for spatial data management, mapping, and infrastructure planning',
+    companies: ['Munsoft', 'Novus3']
+  },
+  { 
+    icon: '🛡️', 
+    title: 'Performance Management', 
+    description: 'IDP process planning, performance tracking, and organizational development',
+    companies: ['Novus3', 'Advisory']
+  },
 ]
 
 export default function Solutions() {
   const [hoveredIndex, setHoveredIndex] = useState(null)
 
   return (
-    <section id="solutions" className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section id="solutions" className="py-20 bg-gradient-to-br from-slate-50 to-gray-100 dark:from-gray-800 dark:to-slate-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
@@ -29,28 +89,30 @@ export default function Solutions() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-slate-700 via-slate-800 to-slate-900 dark:from-slate-300 dark:via-slate-200 dark:to-slate-100 bg-clip-text text-transparent">
             Our Solutions
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400">Comprehensive solutions across the ITNA group of companies</p>
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            Comprehensive technology solutions delivered across the ITNA group to transform local government operations
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {solutions.map((solution, index) => (
             <motion.div
               key={index}
-              className="group relative bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
+              className="group relative bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-700"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
               whileHover={{ y: -10, scale: 1.02 }}
             >
               {/* Gradient Background on Hover */}
               <div
-                className={`absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300`}
+                className="absolute inset-0 bg-gradient-to-br from-slate-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               />
               
               <div className="relative z-10">
@@ -67,9 +129,21 @@ export default function Solutions() {
                 <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200">
                   {solution.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400">
+                <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">
                   {solution.description}
                 </p>
+                
+                {/* Company Tags */}
+                <div className="flex flex-wrap gap-2">
+                  {solution.companies.map((company, idx) => (
+                    <span
+                      key={idx}
+                      className="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-full"
+                    >
+                      {company}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               {/* Shine Effect */}
@@ -81,4 +155,3 @@ export default function Solutions() {
     </section>
   )
 }
-
