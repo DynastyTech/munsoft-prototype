@@ -77,9 +77,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
             >
-              <span className="px-4 py-2 rounded-full bg-gradient-to-r from-slate-100 to-gray-200 dark:from-slate-800 dark:to-gray-800 text-slate-700 dark:text-slate-300 text-sm font-medium border border-slate-200 dark:border-slate-700">
-                🏆 Level 1 BBBEE Technology Investment Company
-              </span>
+              
             </motion.div>
 
             <motion.h1
