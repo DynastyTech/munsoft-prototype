@@ -281,7 +281,7 @@ export const timeline = [
 
 // Group statistics
 export const groupStats = {
-  companies: 10,
+  companies: '10+',
   saClients: 70,
   namibiaClients: 17,
   countries: 3,

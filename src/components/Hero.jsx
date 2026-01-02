@@ -113,7 +113,7 @@ export default function Hero() {
             >
               <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-xl p-4 shadow-lg border border-slate-200 dark:border-slate-700">
                 <div className="text-3xl md:text-4xl font-bold text-slate-700 dark:text-slate-300">
-                  <AnimatedNumber value={groupStats.companies} suffix="" />
+                  {groupStats.companies}
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">Group Companies</div>
               </div>
