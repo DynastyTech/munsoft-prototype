@@ -159,7 +159,7 @@ export default function Companies() {
                 <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-gray-200 text-center">
                   {company.shortName}
                 </h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-2 text-center">
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 text-center">
                   {company.description}
                 </p>
 

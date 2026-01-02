@@ -101,7 +101,9 @@ export default function Clients() {
     if (!scrollContainer) return
 
     let scrollPosition = 0
-    const scrollSpeed = 0.5
+    // Doubled the scroll speed from 0.5 to 1.0
+    const scrollSpeed = 1.0
+    let animationId
 
     const scroll = () => {
       if (isScrolling) {
@@ -112,10 +114,11 @@ export default function Clients() {
           scrollPosition = 0
         }
       }
+      animationId = requestAnimationFrame(scroll)
     }
 
-    const interval = setInterval(scroll, 16)
-    return () => clearInterval(interval)
+    animationId = requestAnimationFrame(scroll)
+    return () => cancelAnimationFrame(animationId)
   }, [isScrolling])
 
   return (
@@ -128,11 +131,11 @@ export default function Clients() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-slate-700 to-slate-900 dark:from-slate-300 dark:to-slate-100 bg-clip-text text-transparent">
             Our Clients
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400">
-            Proudly servicing 88+ clients across Namibia, South Africa, and eSwatini
+            Proudly servicing 87+ clients across Namibia, South Africa, and eSwatini
           </p>
         </motion.div>
 
@@ -143,23 +146,19 @@ export default function Clients() {
         >
           <div
             ref={scrollRef}
-            className="flex space-x-4 overflow-x-hidden scrollbar-hide"
+            className="flex space-x-4 overflow-x-hidden will-change-scroll"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
-            {/* Duplicate for seamless loop */}
+            {/* Duplicate for seamless loop - removed individual animations for performance */}
             {[...clients, ...clients].map((client, index) => (
-              <motion.div
+              <div
                 key={`${client}-${index}`}
-                className="flex-shrink-0 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-700 rounded-xl px-6 py-4 shadow-md hover:shadow-xl transition-all duration-300 whitespace-nowrap"
-                whileHover={{ scale: 1.05, y: -5 }}
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
+                className="flex-shrink-0 bg-gradient-to-br from-slate-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-xl px-6 py-4 shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-1 transition-all duration-200 whitespace-nowrap will-change-transform"
               >
                 <span className="text-gray-800 dark:text-gray-200 font-medium">
                   {client}
                 </span>
-              </motion.div>
+              </div>
             ))}
           </div>
 
@@ -171,4 +170,3 @@ export default function Clients() {
     </section>
   )
 }
-
