@@ -135,18 +135,83 @@ Update the content in each component file to match your needs:
 
 ## Deployment
 
-This website is configured for deployment on GitHub Pages. The deployment is automated via GitHub Actions.
+This website can be deployed on Vercel (recommended) or GitHub Pages.
 
-### Setting Up GitHub Pages
+### Deploying to Vercel (Recommended)
 
-1. Go to your repository settings on GitHub: `https://github.com/HackerWithDrip/munsoft-prototype/settings`
+Vercel provides the easiest and fastest deployment experience for Vite + React applications.
+
+#### Option 1: Deploy via Vercel Dashboard (Easiest)
+
+1. **Push your code to GitHub** (if not already done):
+   ```bash
+   git add .
+   git commit -m "Prepare for Vercel deployment"
+   git push origin main
+   ```
+
+2. **Go to [vercel.com](https://vercel.com)** and sign in (or create an account)
+
+3. **Import your project**:
+   - Click "Add New..." → "Project"
+   - Import your GitHub repository
+   - Vercel will auto-detect it's a Vite project
+
+4. **Configure deployment** (usually auto-detected):
+   - **Framework Preset**: Vite
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+   - **Install Command**: `npm install`
+
+5. **Click "Deploy"**
+
+6. **Your site will be live** at: `https://your-project-name.vercel.app`
+
+#### Option 2: Deploy via Vercel CLI
+
+1. **Install Vercel CLI**:
+   ```bash
+   npm i -g vercel
+   ```
+
+2. **Login to Vercel**:
+   ```bash
+   vercel login
+   ```
+
+3. **Deploy**:
+   ```bash
+   vercel
+   ```
+
+4. **For production deployment**:
+   ```bash
+   vercel --prod
+   ```
+
+#### Vercel Features
+
+- ✅ Automatic deployments on every push to `main`
+- ✅ Preview deployments for pull requests
+- ✅ Custom domain support
+- ✅ SSL certificates (automatic)
+- ✅ Global CDN
+- ✅ Environment variables support
+
+### Deploying to GitHub Pages
+
+This website is also configured for deployment on GitHub Pages. The deployment is automated via GitHub Actions.
+
+#### Setting Up GitHub Pages
+
+1. Go to your repository settings on GitHub
 2. Navigate to **Pages** in the left sidebar
 3. Under **Source**, select **GitHub Actions** (not "Deploy from a branch")
 4. The GitHub Actions workflow will automatically deploy your site when you push to the `main` branch
 
 ### Access Your Live Site
 
-Once deployed, your site will be available at:
+Once deployed via GitHub Pages, your site will be available at:
 ```
 https://dynastytech.github.io/munsoft-prototype/
 ```
@@ -158,11 +223,18 @@ The site is automatically deployed on every push to the `main` branch. You can a
 2. Selecting the **Deploy to GitHub Pages** workflow
 3. Clicking **Run workflow**
 
+**Note**: The project is currently configured for Vercel deployment (`base: '/'`). For GitHub Pages, you'll need to update `vite.config.js` to set `base: '/munsoft-prototype/'` instead.
+
 ### Troubleshooting
 
-If the site doesn't load correctly:
+**Vercel:**
+- Ensure `vercel.json` is in the root directory
+- Check build logs in Vercel dashboard
+- Verify Node.js version (Vercel auto-detects, but you can specify in `package.json`)
+
+**GitHub Pages:**
 - Check the Actions tab to see if the deployment workflow succeeded
-- Ensure the base path in `vite.config.js` matches your repository name (`/munsoft-prototype/`)
+- Ensure the base path in `vite.config.js` matches your repository name
 - Wait a few minutes for GitHub Pages to propagate changes
 
 ## License

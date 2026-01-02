@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useTheme } from '../contexts/ThemeContext'
 import { motion, AnimatePresence } from 'framer-motion'
+import logoITNA from '../Logos/ITNA_LOGO_WHITE.webp'
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -17,6 +18,7 @@ export default function Navbar() {
 
   const navItems = [
     { name: 'Home', href: '#home' },
+    { name: 'Companies', href: '#companies' },
     { name: 'Solutions', href: '#solutions' },
     { name: 'Clients', href: '#clients' },
     { name: 'Academy', href: '#academy' },
@@ -42,11 +44,15 @@ export default function Navbar() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white font-bold text-2xl shadow-lg transform transition-transform duration-300 group-hover:rotate-12">
-              M
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-white dark:bg-gray-800 p-2 shadow-lg transform transition-transform duration-300 group-hover:rotate-12">
+              <img
+                src={logoITNA}
+                alt="ITNA Logo"
+                className="w-full h-full object-contain"
+              />
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Munsoft
+            <span className="text-2xl font-bold bg-gradient-to-r from-gray-700 to-gray-900 dark:from-gray-300 dark:to-gray-100 bg-clip-text text-transparent">
+              ITNA
             </span>
           </motion.a>
 

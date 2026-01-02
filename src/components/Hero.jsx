@@ -76,8 +76,8 @@ export default function Hero() {
               transition={{ delay: 0.2 }}
             >
               <span className="block text-gray-700 dark:text-gray-300">Welcome to</span>
-              <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
-                Munsoft
+              <span className="block bg-gradient-to-r from-gray-700 via-gray-800 to-gray-900 dark:from-gray-300 dark:via-gray-200 dark:to-gray-100 bg-clip-text text-transparent">
+                ITNA
               </span>
             </motion.h1>
             
@@ -87,7 +87,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
             >
-              Integrated Financial Management & Internal Control System for Local Government
+              Parent company overseeing a comprehensive ecosystem of specialized companies delivering integrated solutions for local government and public sector
             </motion.p>
 
             {/* Stats */}
@@ -99,21 +99,21 @@ export default function Hero() {
             >
               <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-xl p-4 shadow-lg">
                 <div className="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400">
+                  <AnimatedNumber value={7} />
+                </div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Companies</div>
+              </div>
+              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-xl p-4 shadow-lg">
+                <div className="text-3xl md:text-4xl font-bold text-purple-600 dark:text-purple-400">
                   <AnimatedNumber value={88} />
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">Active Clients</div>
               </div>
               <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-xl p-4 shadow-lg">
-                <div className="text-3xl md:text-4xl font-bold text-purple-600 dark:text-purple-400">
+                <div className="text-3xl md:text-4xl font-bold text-pink-600 dark:text-pink-400">
                   <AnimatedNumber value={3} />
                 </div>
                 <div className="text-sm text-gray-600 dark:text-gray-400">Countries</div>
-              </div>
-              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg rounded-xl p-4 shadow-lg">
-                <div className="text-3xl md:text-4xl font-bold text-pink-600 dark:text-pink-400">
-                  <AnimatedNumber value={12} />
-                </div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Solutions</div>
               </div>
             </motion.div>
 

@@ -30,9 +30,9 @@ export default function Solutions() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Munsoft Solutions
+            Our Solutions
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400">What we do, best!</p>
+          <p className="text-xl text-gray-600 dark:text-gray-400">Comprehensive solutions across the ITNA group of companies</p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

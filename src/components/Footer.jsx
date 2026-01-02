@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion'
+import { companies } from '../data/companies'
+import logoITNA from '../Logos/ITNA_LOGO_WHITE.webp'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -6,6 +8,7 @@ export default function Footer() {
   const footerLinks = {
     quick: [
       { name: 'Home', href: '#home' },
+      { name: 'Companies', href: '#companies' },
       { name: 'Solutions', href: '#solutions' },
       { name: 'Clients', href: '#clients' },
       { name: 'Academy', href: '#academy' },
@@ -21,7 +24,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 dark:bg-black text-gray-300 py-12">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
           {/* Logo & Description */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -30,13 +33,17 @@ export default function Footer() {
             transition={{ duration: 0.5 }}
           >
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">
-                M
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-white dark:bg-gray-800 p-1">
+                <img
+                  src={logoITNA}
+                  alt="ITNA Logo"
+                  className="w-full h-full object-contain"
+                />
               </div>
-              <span className="text-xl font-bold text-white">Munsoft</span>
+              <span className="text-xl font-bold text-white">ITNA</span>
             </div>
             <p className="text-gray-400 text-sm">
-              Integrated Financial Management & Internal Control System for Local Government
+              Parent company overseeing a comprehensive ecosystem of specialized companies delivering integrated solutions for local government and public sector
             </p>
           </motion.div>
 
@@ -84,12 +91,36 @@ export default function Footer() {
             </ul>
           </motion.div>
 
-          {/* Contact */}
+          {/* Companies */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <h4 className="text-white font-semibold mb-4">Our Companies</h4>
+            <ul className="space-y-2">
+              {companies.map((company) => (
+                <li key={company.id}>
+                  <a
+                    href={company.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-blue-400 transition-colors duration-300 text-sm"
+                  >
+                    {company.shortName}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          {/* Contact */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
           >
             <h4 className="text-white font-semibold mb-4">Contact</h4>
             <ul className="space-y-2 text-gray-400 text-sm">
@@ -108,7 +139,7 @@ export default function Footer() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <p>Copyright © Munsoft ({currentYear}). All Rights Reserved</p>
+          <p>Copyright © ITNA ({currentYear}). All Rights Reserved</p>
         </motion.div>
       </div>
     </footer>
