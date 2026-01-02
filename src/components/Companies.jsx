@@ -35,7 +35,7 @@ export default function Companies() {
   const subsidiaries = companies.filter(c => !c.isParent)
 
   return (
-    <section id="companies" className="py-20 bg-white dark:bg-gray-900">
+    <section id="companies" className="py-20 bg-white dark:bg-gray-900 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"

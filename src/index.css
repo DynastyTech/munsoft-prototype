@@ -3,15 +3,28 @@
 @tailwind utilities;
 
 @layer base {
+  /* Prevent mobile bounce/overscroll */
+  html {
+    overflow-x: hidden;
+    overscroll-behavior: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  
   body {
     @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300;
     font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    overscroll-behavior-y: none;
+    /* Prevent pull-to-refresh on mobile */
+    overscroll-behavior-x: none;
   }
   
   /* Performance optimizations */
   * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Prevent text selection issues on mobile */
+    -webkit-tap-highlight-color: transparent;
   }
 }
 
@@ -40,6 +53,12 @@
   .gpu-accelerated {
     transform: translateZ(0);
     backface-visibility: hidden;
+  }
+  
+  /* Mobile-safe full height */
+  .min-h-screen-safe {
+    min-height: 100vh;
+    min-height: 100dvh;
   }
 }
 
@@ -88,4 +107,25 @@ html {
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+/* Mobile touch improvements */
+@media (max-width: 768px) {
+  /* Prevent horizontal overflow on mobile */
+  body {
+    position: relative;
+    width: 100%;
+  }
+  
+  /* Debounce scroll animations on mobile */
+  .motion-safe {
+    scroll-snap-type: y proximity;
+  }
+}
+
+/* Fix for iOS Safari 100vh issue */
+@supports (-webkit-touch-callout: none) {
+  .min-h-screen {
+    min-height: -webkit-fill-available;
+  }
 }

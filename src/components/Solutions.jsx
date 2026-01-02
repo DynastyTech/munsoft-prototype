@@ -80,7 +80,7 @@ export default function Solutions() {
   const [hoveredIndex, setHoveredIndex] = useState(null)
 
   return (
-    <section id="solutions" className="py-20 bg-gradient-to-br from-slate-50 to-gray-100 dark:from-gray-800 dark:to-slate-900">
+    <section id="solutions" className="py-20 bg-gradient-to-br from-slate-50 to-gray-100 dark:from-gray-800 dark:to-slate-900 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
